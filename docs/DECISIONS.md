@@ -12,7 +12,7 @@ Documentation rule. Most were made by a constitutional amendment, but not all:
 ADR-001 to ADR-007 were made during repository bootstrap on 2026-10-01, ADR-009
 and ADR-011 recorded the design system's own decisions and the mirrors'
 encoding, ADR-012 to ADR-013 were design-system and workflow decisions, and
-ADR-015 onward are governance decisions ratified by the repository owner. The
+ADR-015 onward were ratified by the repository owner. The
 owning feature is one of "none yet — repository bootstrap (pre-feature record)",
 "none — governance decision; ratified by the repository owner", or the
 identifier of the slice that first implements the decision. The bootstrap-era

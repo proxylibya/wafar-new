@@ -918,9 +918,10 @@ if (footer) {
 /* ---- M. the decision register's volumes (ADR-125) -------------------------- */
 // The records live in docs/decisions/volume-NN.md. They must be contiguous from
 // ADR-001 to the index's last row, ascending inside each file, and unique. A
-// non-last volume stays within the volume cap; the last volume may cross it only
-// by the record that crosses it, measured as the prefix before its last record.
-// The index has its own cap so it cannot silently become the next 663 KB file.
+// non-last volume stays within the volume cap unless it holds a single record,
+// which cannot be split; the last volume may cross it only by the record that
+// crosses it, measured as the prefix before its last record. The index has its
+// own cap so it cannot silently become the next 663 KB file.
 const VOLUME_CAP = 100_000;
 const INDEX_CAP = 120_000;
 if (volumeFiles.length === 0) {
@@ -929,6 +930,7 @@ if (volumeFiles.length === 0) {
   const all = [];
   let largest = { file: '', bytes: 0 };
   const prefixBytes = new Map();
+  const recordCounts = new Map();
   for (const file of volumeFiles) {
     const text = volumeText.get(file);
     const bytes = Buffer.byteLength(text, 'utf8');
@@ -942,6 +944,7 @@ if (volumeFiles.length === 0) {
       file,
       ms.length > 1 ? Buffer.byteLength(text.slice(0, ms.at(-1).index), 'utf8') : 0,
     );
+    recordCounts.set(file, ms.length);
     for (const m of ms) all.push({ n: Number(m[1]), file });
   }
   volumeFiles.forEach((file, i) => {
@@ -965,7 +968,8 @@ if (volumeFiles.length === 0) {
   volumeFiles.forEach((file, i) => {
     const bytes = Buffer.byteLength(volumeText.get(file), 'utf8');
     const isLast = i === volumeFiles.length - 1;
-    if (!isLast && bytes > VOLUME_CAP) {
+    const count = recordCounts.get(file) ?? 0;
+    if (!isLast && count > 1 && bytes > VOLUME_CAP) {
       failures.push(`M: ${file} is ${bytes} bytes, above the ${VOLUME_CAP}-byte volume cap`);
     }
     const prefix = prefixBytes.get(file) ?? 0;

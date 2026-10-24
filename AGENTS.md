@@ -40,7 +40,8 @@ re-invent what already exists. See `docs/DECISIONS.md` → ADR-007.
 
 Read only the constitution sections this list names; the constitution's own
 Reading protocol mirrors this map, and the constitution MUST NOT be read end to
-end for a feature command.
+end for a feature command. Where a list names `docs/DECISIONS.md`, read its index
+and the volume that holds the records the command needs (ADR-071, ADR-125).
 
 - `/speckit.specify` → the constitution (Product Scope, Product Register, the
   Usage Limits table in Performance Budgets and Verification, Glossary),
