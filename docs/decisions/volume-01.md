@@ -393,6 +393,7 @@ templates use "ACTION REQUIRED" comments for their own instructions), and the
 block is now marked NORMATIVE in place.
 
 ---
+
 ## ADR-009 — The design system's own decisions, recorded out of its source comments
 
 **Status**: Accepted — 2026-10-02
@@ -497,7 +498,6 @@ modules and 30 keyframes. The historical figures remain here as the v1.0.0
 record.
 
 ---
-
 ## ADR-011 — Mirror files confirmed as valid UTF-8
 
 **Status**: Accepted - 2026-10-02
@@ -709,7 +709,6 @@ ROADMAP.md → R#.`, which the binding specification template now carries. A
 synonym file such as `SLICE-MAP.md` MUST NOT be created: `ROADMAP.md` is the
 slice order, and a second copy is a drift defect.
 
-
 ---
 
 ## ADR-016 — The icon set and the shell belong to the foundation duties of R1
@@ -753,6 +752,7 @@ is unchanged.
 and its place is the header once more: ADR-102 moved it out of the sidebar and
 into the header, immediately beside the notifications control, drawn with the
 crescent glyph of the registered IconPark set. The icon-set duty is unchanged.
+
 
 ---
 

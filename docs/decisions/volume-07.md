@@ -125,6 +125,7 @@ when this record was written: commit `e410e5b`, which carries this entry, makes
 `ROADMAP.md`'s R3 row name setting `first_page_metadata_incomplete`, so the
 sentence above is corrected rather than annotated, and no follow-up remains open.
 
+
 ---
 
 ## ADR-106 — The third audit fix set: the administrator reply, the citation precision, and the specification identifier check
@@ -510,6 +511,8 @@ the change is register prose, the copies that restate its count, and one constan
 in a read-only check.
 Review date: 2026-12-20. This entry is the durable record.
 
+---
+
 ## ADR-111 — The recovery flow's verified state, and the bare pages' state announcements
 
 **Status**: Accepted - 2026-10-22
@@ -707,8 +710,6 @@ an account field there before the code is verified would reveal that the number
 has an account, breaching FR-015 and SC-004. The no-password rule is unchanged
 and governs both flows. ADR-113 records the bound.
 
----
-
 ## ADR-113 — The recovery code step's fields, the restricted administrator's sign-out, and the code step's controls
 
 **Status**: Accepted - 2026-10-22
@@ -804,6 +805,7 @@ and `Project-Technologies.txt`'s header list gains 113 contiguously. No migratio
 or backfill is required: the change is specification prose, one decision record,
 one checklist re-validation, and the copied range strings.
 Review date: 2026-11-20. This entry is the durable record.
+
 ---
 
 ## ADR-114 — The forced first change's password, the pending request's password, refusal precedence, and a failed re-request
@@ -909,6 +911,7 @@ list gains 114 contiguously. No migration or backfill is required: the change is
 specification prose, one decision record, one checklist re-validation, the model
 corrections, and the copied range strings.
 Review date: 2026-11-20. This entry is the durable record.
+---
 
 ## ADR-115 — The ended-session state, the acceptance boundary, the counted code, the replaced verification, and the forced change
 
@@ -1023,8 +1026,6 @@ or backfill is required: the change is specification prose, one decision record,
 the model corrections, the copied range strings, and a checklist re-validation in
 which every item still passes.
 Review date: 2026-11-20. This entry is the durable record.
-
----
 
 ## ADR-116 — The UI-layer path authority and the register-gap exception
 

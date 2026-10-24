@@ -1029,6 +1029,8 @@ entry is the durable record.
 
 **Annotation (2026-10-08, ADR-074).** Item 1 above classifies `.specify/templates/exception-register.md` as an upstream-owned file that "MUST stay unmodified", and item 3 keeps the project-owned exclusion to the five `templates/overrides/*` files and `.specify/.gitignore`. The register is not upstream-owned: Governance requires the project to maintain it, and ADR-052 and ADR-054 wrote its six rows into it. Its recorded hash happens to match the project's copy, so check C enforced a project-authored file — and would have failed on the next exception granted. ADR-074 adds it to the exclusion rule, so the three project-owned paths are the five overrides, `.specify/.gitignore`, and the exception register.
 
+---
+
 ## ADR-072 — Workflow execution defects and CSS standard conformance
 
 **Status**: Accepted — 2026-10-08
@@ -1197,8 +1199,6 @@ retention mechanism stated correctly for R15. The drift check is stronger: it
 scans every governance markdown file for a stale range string and verifies both
 integration manifests. The two version sources agree at **2.27.0**. This entry is
 the durable record.
-
----
 
 ## ADR-073 — Duplicate-storage semantics, slice component obligations, and mirror precision
 

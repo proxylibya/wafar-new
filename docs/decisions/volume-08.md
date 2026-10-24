@@ -440,6 +440,8 @@ R3's. The live `ADR-001 … ADR-121` range strings move to `ADR-001 … ADR-122`
 documentation-only: there is no production data, no schema, and no code, so no
 backfill runs. Review date: 2026-11-23, and again when R3's benchmark lands.
 
+---
+
 ## ADR-123 — The 4.2.0 audit fix set: References, the exception register, and four document corrections
 
 **Status**: Accepted — 2026-10-24
@@ -548,6 +550,7 @@ count, identifier, or version source. The change is documentation-only: no
 production data, no schema, and no code, so no backfill runs. The constitution's
 sync impact report is review material and is not committed (Governance →
 amendment procedure). Review date: 2026-11-24.
+
 ## ADR-124 — The blocked recovery confirmation, the replacement code's full period, the single security notice, and the journey criteria's delivery boundary
 
 **Status**: Accepted - 2026-10-24
@@ -690,10 +693,10 @@ heading, a volume cap, and an index cap. The numbers live only in the check.
 
 **Consequences.** A reader loads the index (about 29 KB) and one volume (at most
 100 KB). The index is capped at 120 KB; passing it fails the check and forces a
-second-level index decision instead of silent re-inflation. No link outside the
-index pointed at an `#adr-` anchor (measured: zero), so no external reference
-broke. The original history stays reachable through `docs/DECISIONS.md` and
-`git log -S`; `--follow` on a volume does not cross the split, because the
+second-level index decision instead of silent re-inflation. No live link outside
+the index pointed at an `#adr-` anchor (measured: zero), so no external
+reference broke. The original history stays reachable through `docs/DECISIONS.md`
+and `git log -S`; `--follow` on a volume does not cross the split, because the
 records were copied into new files while the index kept its own path. The churn
 that filled the register is unchanged; reducing it is a separate decision.
 
@@ -701,7 +704,7 @@ that filled the register is unchanged; reducing it is a separate decision.
 before and after with SHA-256, 124 of 124 matched. The drift check's B, J, and
 reference passes were updated in the same change; M was added. Acceptance tests
 covered continuity, caps, href targets, and six negative mutations; rollback is
-a single `git revert` of this change. R1's specification carries
+a revert of the change set — the split and its follow-ups — and restores the
+single file with no manual reconstruction. R1's specification carries
 the live range string `ADR-001 … ADR-125`; no `FR`, `AC`, or `SC` identifier
-changed, so R1's Constitution Check is unaffected. A revert of this change
-restores the single file with no manual reconstruction.
+changed, so R1's Constitution Check is unaffected.
