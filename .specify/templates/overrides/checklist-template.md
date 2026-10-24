@@ -20,7 +20,8 @@
      - `.specify/memory/constitution.md` — principles and governance.
      - `Core-Project.txt` — the product definition: roles, pages, file
        processing, and acceptance criteria.
-     - `docs/DECISIONS.md` — accepted decisions (ADR-001 … ADR-125).
+     - the decision register — `docs/DECISIONS.md`'s index and the volumes
+       under `docs/decisions/` (ADR-001 … ADR-125).
        An item that contradicts one is a blocking defect.
      - `docs/domain-model.md` — the entities a checklist may reference,
        and the invariants it MUST NOT contradict.

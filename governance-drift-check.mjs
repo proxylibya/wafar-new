@@ -128,8 +128,9 @@ const RANGE = /ADR-001\s*…\s*ADR-(\d{3})/g;
 
 // Every other markdown file is scanned too, so a new document that carries a
 // stale range string is caught even though it is not on the required list.
-// `docs/DECISIONS.md` is excluded: it holds historical range strings in its
-// records, which are correct as written.
+// `docs/DECISIONS.md` is excluded as well, and the ADR volumes are outside this
+// top-level scan by their location under `docs/decisions/`: both hold historical
+// range strings that are correct as written.
 const scannedRangeFiles = new Set(REQUIRED_RANGE_FILES);
 for (const dir of ['docs', '.specify/templates/overrides']) {
   if (!existsSync(join(ROOT, dir))) continue;

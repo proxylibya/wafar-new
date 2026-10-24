@@ -29,8 +29,8 @@
     `docs/DECISIONS.md` read its index and the volume that holds the records
     this feature touches, not the whole register (ADR-071, ADR-125, Reading
     protocol). A plan that contradicts an
-    accepted ADR (docs/DECISIONS.md) or the Technology Standards is an ERROR,
-    not a preference. The Ownership Map MUST record paths that match
+    accepted ADR (the decision register) or the Technology Standards is an
+    ERROR, not a preference. The Ownership Map MUST record paths that match
     `docs/architecture.md`, and a project-level concern (architecture, data
     model, UI foundation, technology stack, conventions) MUST NOT be turned into
     a feature.

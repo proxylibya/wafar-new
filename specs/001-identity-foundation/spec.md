@@ -34,8 +34,9 @@
        - `Core-Project.txt` — the product definition: roles and their
          permissions, the page list, the file-processing sequence, and the
          statements the product already makes as acceptance criteria.
-       - `docs/DECISIONS.md` — accepted decisions (ADR-001 … ADR-125). A
-         specification that contradicts one is a blocking defect.
+       - the decision register — `docs/DECISIONS.md`'s index and the volumes
+         under `docs/decisions/` (ADR-001 … ADR-125). A specification that
+         contradicts one is a blocking defect.
        - `docs/domain-model.md` — the entities a Key Entities section may name,
          and the invariants such a specification MUST NOT contradict. A
          specification MUST NOT invent an entity, and MUST NOT restate the

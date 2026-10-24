@@ -28,7 +28,7 @@ and a feature artifact references it rather than restating it.
 | Approved technology stack — the register | `.specify/memory/constitution.md` (Technology Standards); `Project-Technologies.txt` mirrors it |
 | UI foundation — component library and the project layer | `.specify/memory/constitution.md` → Principle IX; ADR-097 fixes the Wafar UI layer's path (`packages/ui`); R1 builds it through its plan and consumes it |
 | Product detail (roles, pages, acceptance criteria) — mirror | `Core-Project.txt`; the constitution's Product Register and Product Scope win on conflict |
-| Accepted decisions | `docs/DECISIONS.md` (ADR-001 … ADR-125; the index table is at the top of that file) |
+| Accepted decisions | the decision register: `docs/DECISIONS.md` (the index and reading protocol) and `docs/decisions/volume-NN.md` (the records) |
 | Slice order for the MVP | `ROADMAP.md` |
 
 **Prohibited:** creating a feature numbered after a project-level concern (for
