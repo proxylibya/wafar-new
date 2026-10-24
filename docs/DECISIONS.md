@@ -33,11 +33,10 @@ carry: `governance-drift-check.mjs` compares every live range string against
 that last row, so a document whose range disagrees with the index is corrected
 from the index rather than edited in its own words.
 
-**Append rule (ADR-125).** A new record is appended to the last volume. When
-that record would push the volume past the byte cap the drift check carries,
-the next volume is opened in the same change, and the record's index row points
-to the volume that holds it. The volume cap and the index cap live only in
-`governance-drift-check.mjs`.
+**Append rule (ADR-125).** A new record is appended to the last volume, and its
+index row points to the volume that holds it. The binding rule — when a volume
+is closed, and how large a volume or the index may grow — is stated once in the
+constitution's Documentation section and enforced by `governance-drift-check.mjs`.
 
 ## Index
 

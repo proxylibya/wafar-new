@@ -944,6 +944,10 @@ if (volumeFiles.length === 0) {
     );
     for (const m of ms) all.push({ n: Number(m[1]), file });
   }
+  volumeFiles.forEach((file, i) => {
+    const want = `volume-${String(i + 1).padStart(2, '0')}.md`;
+    if (file !== want) failures.push(`M: ${file} appears where ${want} was expected`);
+  });
   for (let i = 0; i < all.length; i++) {
     if (all[i].n !== i + 1) {
       failures.push(
