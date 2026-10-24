@@ -44,8 +44,8 @@
          registered product fact changed only by amending the register and
          recording an ADR.
      Read the sections named above; for `docs/DECISIONS.md` read its index and
-     the records this feature touches, not the whole file (ADR-071, Reading
-     protocol).
+     the volume that holds the records this feature touches, not the whole
+     register (ADR-071, ADR-125, Reading protocol).
      The technical sources (`docs/architecture.md`, `Project-Technologies.txt`)
      are bound in plan-template.md, NOT here: naming their content in this file
      would breach rule 1 (Principle VII).
