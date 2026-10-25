@@ -661,11 +661,11 @@ This entry is the durable record.
 **Context.** The decision register had grown to 663,427 bytes, 9,862 lines, and
 124 records — about 166,000 tokens. No reader could load it in one pass, and the
 reading protocol that told readers not to (ADR-071) was not enforced by anything
-the repository runs. Slightly less than half of the volume was meta-governance:
-31 constitution-amendment records and 24 audit/fix rounds, against 69 product and
-engineering decisions. The register's own growth rule was "append one record per
-amendment", so the file grew with the governance process rather than with the
-product.
+the repository runs. A manual count found that slightly less than half of the
+volume was meta-governance: 31 constitution-amendment records and 24 audit/fix
+rounds, against 69 product and engineering decisions. The register's own growth
+rule was "append one record per amendment", so the file grew with the governance
+process rather than with the product.
 
 **Decision.** The register is the index and reading protocol in
 `docs/DECISIONS.md` plus eight chronological volumes under `docs/decisions/`,
@@ -701,8 +701,10 @@ records were copied into new files while the index kept its own path. The churn
 that filled the register is unchanged; reducing it is a separate decision.
 
 **Migration (MAJOR).** The move is byte-preserving: every record was hashed
-before and after with SHA-256, 124 of 124 matched. The drift check's B, J, and
-reference passes were updated in the same change; M was added. Acceptance tests
+before and after with SHA-256, 124 of 124 matched. The hash comparison was a
+one-time migration check; the committed drift check verifies structure, not
+record text. The drift check's B, J, and reference passes were updated in the
+same change; M was added. Acceptance tests
 covered continuity, caps, href targets, and six negative mutations; rollback is
 a revert of the change set — the split and its follow-ups — and restores the
 single file with no manual reconstruction. R1's specification carries

@@ -13,8 +13,9 @@
  *      template overrides, and the feature specifications, equals the last ADR
  *      row in `docs/DECISIONS.md`'s index; every index row's anchor resolves to
  *      its heading in the volume that holds it and its href points to that
- *      volume; no heading is orphaned; and every `ADR-NNN` reference in the
- *      governance set resolves to an ADR the index carries
+ *      volume; the index carries one row per ADR in ascending order; no heading
+ *      is orphaned; and every `ADR-NNN` reference in the governance set resolves
+ *      to an ADR the index carries
  *   F. the ADR list in `Project-Technologies.txt`'s header ends at that row and
  *      is contiguous from ADR-040 to it
  *   K. every enumeration of five or more ADR numbers in the governance set
@@ -177,6 +178,22 @@ if (expected === null) {
       }
     }
   }
+  // The index is one row per ADR, in ascending order. The anchor pass below
+  // resolves each row; this pass catches a duplicate, a gap, or a row moved out
+  // of order, none of which the set comparison would see.
+  if (indexNumbers.length !== Number(expected)) {
+    failures.push(
+      `B: the index carries ${indexNumbers.length} rows, expected ${expected} (one per ADR)`,
+    );
+  }
+  for (let i = 0; i < indexNumbers.length; i++) {
+    if (indexNumbers[i] !== i + 1) {
+      failures.push(
+        `B: index row ${i + 1} is ADR-${String(indexNumbers[i]).padStart(3, '0')}, expected ADR-${String(i + 1).padStart(3, '0')}`,
+      );
+      break;
+    }
+  }
   // Every index row's anchor must resolve to its heading. The heading anchor is
   // GitHub's slug: lowercase, drop every character that is not a letter, digit,
   // space, or hyphen, then replace each space with a hyphen (no collapsing, so
@@ -221,6 +238,7 @@ if (expected === null) {
     }
   }
   notes.push(`B: index ends at ADR-${expected}; ${scannedRangeFiles.size} markdown files scanned`);
+  notes.push(`B: ${indexNumbers.length} index rows checked for one per ADR in ascending order`);
   notes.push(
     `B: ${anchorsChecked} ADR index anchors resolved against the volumes (${volumeFiles.length} files)`,
   );
